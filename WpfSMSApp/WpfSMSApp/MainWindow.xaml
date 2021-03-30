@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Stock Management System" Height="800" Width="1200"
         Icon="/Resources/stock.png"
-        ContentRendered="MetroWindow_ContentRendered" Activated="MetroWindow_Activated_1" 
+        ContentRendered="MetroWindow_ContentRendered" Activated="MetroWindow_Activated" 
         WindowStartupLocation="CenterScreen">
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
@@ -19,14 +19,15 @@
     <DockPanel>
         <Grid DockPanel.Dock="Top" Height="70">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="49*"/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="149*"/>
             </Grid.ColumnDefinitions>
 
             <Button x:Name="BtnBooks" Grid.Column="0" 
@@ -91,7 +92,7 @@
             </Button>
             <Button x:Name="BtnUser" Grid.Column="5" 
                     Content="사용자" FontSize="15" 
-                    Foreground="White" Background="MediumSlateBlue" Margin="5, 10">
+                    Foreground="White" Background="MediumSlateBlue" Margin="5, 10" Grid.ColumnSpan="2" Click="BtnUser_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -101,9 +102,9 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button x:Name="BtnAccount" Grid.Column="6" 
+            <Button x:Name="BtnAccount" Grid.Column="7" 
                     Content="계정" FontSize="15" 
-                    Foreground="White" Background="LightBlue" Margin="5, 10" Click="BtnAccount_Click_1">
+                    Foreground="White" Background="LightBlue" Margin="5, 10" Click="BtnAccount_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -113,7 +114,7 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button x:Name="BtnLogOut" Grid.Column="7" 
+            <Button x:Name="BtnLogOut" Grid.Column="8" 
                     Content="로그아웃" FontSize="15" 
                     Foreground="White" Background="SteelBlue" Margin="5, 10" Click="BtnLogOut_Click">
                 <Button.ContentTemplate>
@@ -126,8 +127,9 @@
                 </Button.ContentTemplate>
             </Button>
         </Grid>
-        <Grid Background="WhiteSmoke">
-            <Frame x:Name="ActiveControl" /> <!-- 화면 전환 -->
+        <Grid>
+            <Frame x:Name="ActiveControl" NavigationUIVisibility="Hidden"/>
+            <!-- 화면 전환 -->
         </Grid>
     </DockPanel>
 </mah:MetroWindow>
