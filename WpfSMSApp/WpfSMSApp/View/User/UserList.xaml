@@ -37,7 +37,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- 제목입력 시작 -->
-        <Label Grid.Row="0" Grid.Column="1" Content="계정리스트" FontSize="26" FontWeight="ExtraBold"
+        <Label Grid.Row="0" Grid.Column="1" Content="사용자 리스트" FontSize="26" FontWeight="ExtraBold"
                VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" />
         <!-- 제목입력 끝 -->
 
@@ -74,11 +74,24 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <RadioButton Content="모두" Margin="5, 0"></RadioButton>
-                <RadioButton Content="활성" Margin="5, 0"></RadioButton>
-                <RadioButton Content="비활성" Margin="5, 0"></RadioButton>
+                <RadioButton x:Name="RdoAll" Content="모두" Margin="5, 0" Checked="RdoAll_Checked"></RadioButton>
+                <RadioButton x:Name="RdoActive" Content="활성" Margin="5, 0" Checked="RdoActive_Checked"></RadioButton>
+                <RadioButton x:Name="RdoDeactive" Content="비활성" Margin="5, 0" Checked="RdoDeactive_Checked"></RadioButton>
             </StackPanel>
-            <DataGrid x:Name="GrdData" Grid.Row="1">
+            <DataGrid x:Name="GrdData" Grid.Row="1"
+                      AutoGenerateColumns="False" SelectionUnit="FullRow"
+                      GridLinesVisibility="Vertical"
+                      Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
+                      ItemsSource="{Binding}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding UserID}" Header="순번" Width="60"/>
+                    <DataGridTextColumn Binding="{Binding UserIdentityNumber}" Header="사번" Width="1*"/>
+                    <DataGridTextColumn Binding="{Binding UserSurname}" Header="성" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding UserName}" Header="이름" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding UserEmail}" Header="이메일" Width="2*"/>
+                    <DataGridTextColumn Binding="{Binding UserAdmin}" Header="관리자 여부" Width="85"/>
+                    <DataGridTextColumn Binding="{Binding UserActivated}" Header="활성 여부" Width="85"/>
+                </DataGrid.Columns>
                 
             </DataGrid>
         </Grid>
