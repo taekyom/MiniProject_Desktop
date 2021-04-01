@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaverMovieFinderApp", "NaverMovieFinderApp\NaverMovieFinderApp.csproj", "{A2F82B5E-6929-4944-B9D6-FD32A1E693DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleNaverMovieFinder", "ConsoleNaverMovieFinder1\ConsoleNaverMovieFinder.csproj", "{58A31940-A772-4E5B-9A6E-B95DED2264B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2F82B5E-6929-4944-B9D6-FD32A1E693DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F82B5E-6929-4944-B9D6-FD32A1E693DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F82B5E-6929-4944-B9D6-FD32A1E693DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F82B5E-6929-4944-B9D6-FD32A1E693DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A31940-A772-4E5B-9A6E-B95DED2264B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A31940-A772-4E5B-9A6E-B95DED2264B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A31940-A772-4E5B-9A6E-B95DED2264B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A31940-A772-4E5B-9A6E-B95DED2264B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3643E503-1ACB-4424-BB28-EA9C4847973A}
+	EndGlobalSection
+EndGlobal
