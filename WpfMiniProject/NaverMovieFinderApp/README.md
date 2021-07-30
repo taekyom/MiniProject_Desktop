@@ -7,7 +7,7 @@
 3. 리스트에서 원하는 영화를 선택하면 오른쪽 그리드에 해당 영화의 포스터가 출력된다.<br/><br/>
 ![검색결과](https://github.com/taekyom/MiniProject_Desktop/blob/main/WpfMiniProject/NaverMovieFinderApp/MOVIEFINDER1.gif "검색결과화면")<br/><br/>
 4. 하단의 '예고편 보기' 버튼을 누르면 TrailerWindow가 생성되고 예고편 리스트를 출력한다. <br/>
-4-1. 예고편을 선택하면 오른쪽 그리드에 유튜브 공식 예고편이 재생된다. ([Youtube API](https://console.cloud.google.com/)를 연동하여 예고편 웹페이지로 연결 가능)<br/><br/>
+4-1. 예고편을 선택하면 오른쪽 그리드에 유튜브 공식 예고편이 재생된다. ([Youtube API](https://console.cloud.google.com/)를 연동)<br/><br/>
 ![유튜브예고편](https://github.com/taekyom/MiniProject_Desktop/blob/main/WpfMiniProject/NaverMovieFinderApp/MOVIEFINDER2.gif "유튜브 예고편화면")<br/><br/>
 5. 하단의 '네이버 영화' 버튼을 누르면 네이버 영화 웹페이지로 이동한다. <br/><br/>
 ![네이버영화](https://github.com/taekyom/MiniProject_Desktop/blob/main/WpfMiniProject/NaverMovieFinderApp/MOVIEFINDER3.gif "네이버영화화면")<br/><br/>
