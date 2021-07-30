@@ -8,5 +8,5 @@
 ------------------------------------
 
 ## 2. WpfSMSApp<br/>
-## 🏭 Stock Management System<br/>
+## 🏭 [Stock Management System](https://github.com/taekyom/MiniProject_Desktop/tree/main/WpfSMSApp/WpfSMSApp)<br/>
 재고관리 프로그램<br/>
