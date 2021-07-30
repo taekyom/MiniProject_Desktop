@@ -78,22 +78,56 @@ namespace WpfSMSApp.View.User
             }
         }
 
+        //그리드에서 클릭한 값이 입력창에 나오도록 하는 이벤트
         private void GrdData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             try
             {
                 //선택된 값이 입력창에 나오도록
-                var user = GrdData.SelectedItem as Model.User;
+                var user = GrdData.SelectedItem as Model.User; //그리드의 값들을 user에 다 넣어줌
             }
             catch (Exception ex)
             {
                 Commons.LOGGER.Error($"예외발생 GrdData_SelectedCellsChanged : {ex}");
-                throw;
             }
         }
 
-        private void BtnDeactive_Click(object sender, RoutedEventArgs e)
+        private async void BtnDeactive_Click(object sender, RoutedEventArgs e)
         {
+            bool isvalid = true;
+
+            if (GrdData.SelectedItem == null)
+            {
+                await Commons.ShowMessageAsync("오류", "비활성화할 사용자를 선택하세요");
+                return;
+            }
+
+            //유효성 체크
+            if (isvalid)
+            {
+                try
+                {
+                    var user = GrdData.SelectedItem as Model.User;
+                    user.UserActivated = false;
+
+                    var result = Logic.DataAccess.SetUser(user);
+
+                    if (result == 0)
+                    {
+                        //사용자 데이터가 입력 안됨
+                        await Commons.ShowMessageAsync("오류", "사용자 수정에 실패했습니다");
+                    }
+                    else
+                    {
+                        NavigationService.Navigate(new UserList());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Commons.LOGGER.Error($"예외 발생 : 사용자 계정 수정 오류 {ex}");
+                    throw;
+                }
+            }
 
         }
     }

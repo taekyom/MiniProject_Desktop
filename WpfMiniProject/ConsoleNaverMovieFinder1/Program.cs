@@ -23,7 +23,7 @@ namespace ConsoleNaverMovieFinder1
 
             int total = Convert.ToInt32(parseJson["total"]);
             Console.WriteLine($"총 검색결과 : {total}");
-            int display = Convert.ToInt32(parseJson["display"]);0
+            int display = Convert.ToInt32(parseJson["display"]);
             Console.WriteLine($"화면 출력 : {display}");
 
             JToken items = parseJson["items"];

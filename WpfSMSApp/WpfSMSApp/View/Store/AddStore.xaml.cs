@@ -65,14 +65,16 @@ namespace WpfSMSApp.View.Store
             }
             return IsValid;
         }
+
+        bool isValid = true;
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            bool isValid = true; //입력된 값이 모두 만족하는지 판별하는 플래그
             LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;
 
             var store = new Model.Store();
             isValid = IsValidInput(); //유효성 체크(필수과정)
             
+            //유효성 체크
             if (isValid)
             {
                 //MessageBox.Show("DB 입력처리!");
@@ -91,6 +93,7 @@ namespace WpfSMSApp.View.Store
                     }
                     else
                     {
+                        //정상적으로 수정되면 원래화면으로 바꿈
                         NavigationService.Navigate(new StoreList());
                     }
                 }

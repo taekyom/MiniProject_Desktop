@@ -10,6 +10,7 @@ namespace WpfSMSApp.Logic
 {
     public class DataAccess
     {
+        // user db 불러오기
         public static List<User> GetUsers()
         {
             List<User> users;
@@ -22,11 +23,8 @@ namespace WpfSMSApp.Logic
             return users;
         }
 
-        /// <summary>
-        /// 입력과 수정을 동시에
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns>0 또는 1 이상</returns>
+        //데이터 값 입력과 수정을 동시에 하는 메서드
+        //키 값이 있으면 update, 없으면 insert
         internal static int SetUser(User user)
         {
             using(var ctx = new SMSEntities())
@@ -36,14 +34,16 @@ namespace WpfSMSApp.Logic
             }
         }
 
+        //창고 db 불러오기
         public static List<Stock> GetStocks()
         {
             List<Stock> stocks;
             using (var ctx = new SMSEntities())
             {
                 stocks = ctx.Stock.ToList();
-                return stocks;
             }
+            return stocks;
+
         }
 
         public static List<Store> GetStores()
@@ -52,8 +52,9 @@ namespace WpfSMSApp.Logic
             using (var ctx = new SMSEntities())
             {
                 stores = ctx.Store.ToList();
-                return stores;
             }
+            return stores;
+
         }
         public static int SetStore(Store store)
         {

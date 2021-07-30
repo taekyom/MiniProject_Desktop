@@ -25,6 +25,7 @@ namespace WpfSMSApp.View
         public LoginView()
         {
             InitializeComponent();
+            Commons.LOGGER.Info("Login View 초기화!");
         }
 
         private async void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -49,7 +50,7 @@ namespace WpfSMSApp.View
         private void TxtUserEmail_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-                TxtPassword.Focus();
+                TxtPassword.Focus(); //이메일치고 엔터 누르면 포커스가 패스워드창으로 자동 tab
         }
 
         private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
@@ -78,12 +79,14 @@ namespace WpfSMSApp.View
                 var mdHash = MD5.Create();
                 password = Commons.GetMd5Hash(mdHash, password);
 
+                //db상에 이메일과 패스워드가 같은 데이터가 있는지 체크
                 var isOurUser = Logic.DataAccess.GetUsers()
                     .Where(u => u.UserEmail.Equals(email) && u.UserPassword.Equals(password)
                                 && u.UserActivated == true).Count();
 
                 if (isOurUser == 0)
                 {
+                    //접속불가
                     LblResult.Visibility = Visibility.Visible;
                     LblResult.Content = "아이디나 패스워드가 일치하지 않습니다.";
                     Commons.LOGGER.Warn("아이디/패스워드 불일치.");
@@ -91,6 +94,7 @@ namespace WpfSMSApp.View
                 }
                 else
                 {
+                    //접속가능
                     Commons.LOGINED_USER = Logic.DataAccess.GetUsers().Where(u => u.UserEmail.Equals(email)).FirstOrDefault();
                     Commons.LOGGER.Info($"{email} 접속성공");
                     this.Visibility = Visibility.Hidden;
